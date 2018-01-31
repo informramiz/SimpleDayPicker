@@ -80,17 +80,33 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
         Log.i(LOG_TAG, "Total days selected=" + countTrue(getSelectedDays()));
     }
 
+    /**
+     * Sets the passed day as selected
+     * @param day the day from @Picker to select/deselect
+     * @param isSelected true for selection, false to deselection
+     */
     public void setDaySelected(@PickerDay int day, boolean isSelected) {
         dayViews[day].setSelected(isSelected);
         decideOtherViewsSelection(dayViews[day]);
     }
 
+    /**
+     * Sets the passed days as selected
+     * @param selectedDays a 7-element array(SUNDAY=0, SATURDAY=6) with days that are selected
+     * set as true
+     */
     public void setDaysSelected(@Size(TOTAL_DAYS) boolean[] selectedDays) {
         for (int i = 0; i < dayViews.length; i++) {
             dayViews[i].setSelected(selectedDays[i]);
         }
     }
 
+    /**
+     * Returns a 7-element array(SUNDAY=0, SATURDAY=6) with days that are selected
+     * set as true
+     * @return 7-element array(SUNDAY=0, SATURDAY=6) with days that are selected
+     * set as true
+     */
     public boolean[] getSelectedDays() {
         boolean[] selectedDays = new boolean[TOTAL_DAYS];
         for (int i = 0; i < dayViews.length; i++) {
