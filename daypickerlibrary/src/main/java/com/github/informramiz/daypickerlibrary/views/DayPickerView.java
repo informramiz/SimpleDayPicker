@@ -100,6 +100,14 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
         return selectedDays;
     }
 
+    /**
+     *
+     * @return count of currently selected days
+     */
+    public int getSelectedDaysCount() {
+        return countTrue(getSelectedDays());
+    }
+
     public boolean isMultiSelectionAllowed() {
         return isMultiSelectionAllowed;
     }
