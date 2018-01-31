@@ -2,6 +2,7 @@
 A simple material design week day picker just like Time and Date pickers of Android support library. It's simple, light weight and works just like native Date and Time pickers you are used to.
 
 ![dayPickerView.png](demo-images/s1.png)
+![dayPickerView.png](demo-images/s2.png)
 
 You can use it as a view like any other view and also define it in XML code like below.
 
@@ -14,3 +15,16 @@ You can use it as a view like any other view and also define it in XML code like
         app:isMultiSelectionAllowed="true"/>
 ```
 
+If you want to use it as a dialog like you use native Android Date/Time pickers, it's simple.
+
+```
+DayPickerDialog.Builder builder = new DayPickerDialog.Builder(this)
+                .setMultiSelectionAllowed(false)
+                .setOnDaysSelectedListener(new DayPickerDialog.OnDaysSelectedListener() {
+                    @Override
+                    public void onDaysSelected(DayPickerView dayPickerView, boolean[] selectedDays) {
+							//do something with selected days
+                    }
+                });
+builder.build().show();
+```
