@@ -2,13 +2,11 @@ package com.github.informramiz.daypickerlibrary.views;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.IdRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.Size;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -40,6 +38,22 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
 
     private boolean isMultiSelectionAllowed = true;
     private CircularTextView[] dayViews = new CircularTextView[TOTAL_DAYS];
+    @Nullable
+    private OnDaysSelectionChangedListener onDaysSelectionChangedListener;
+
+    /**
+     * Callback to communicate day selection back
+     *
+     */
+    public interface OnDaysSelectionChangedListener {
+        /**
+         * Callback to be called when day selection is changed
+         * @param dayPickerView View associated with this listener
+         * @param selectedDays 7-element array(SUNDAY=0, SATURDAY=6) with days that are selected
+         * set as true
+         */
+        void onDaysSelectionChange(DayPickerView dayPickerView, boolean[] selectedDays);
+    }
 
     public DayPickerView(@NonNull Context context) {
         super(context);
@@ -77,7 +91,9 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         decideOtherViewsSelection(v);
-        Log.i(LOG_TAG, "Total days selected=" + countTrue(getSelectedDays()));
+        if (onDaysSelectionChangedListener != null) {
+            onDaysSelectionChangedListener.onDaysSelectionChange(this, getSelectedDays());
+        }
     }
 
     /**
@@ -95,7 +111,7 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
      * @param selectedDays a 7-element array(SUNDAY=0, SATURDAY=6) with days that are selected
      * set as true
      */
-    public void setDaysSelected(@Size(TOTAL_DAYS) boolean[] selectedDays) {
+    public void setDaysSelected(@NonNull @Size(TOTAL_DAYS) boolean[] selectedDays) {
         for (int i = 0; i < dayViews.length; i++) {
             dayViews[i].setSelected(selectedDays[i]);
         }
@@ -107,6 +123,7 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
      * @return 7-element array(SUNDAY=0, SATURDAY=6) with days that are selected
      * set as true
      */
+    @NonNull
     public boolean[] getSelectedDays() {
         boolean[] selectedDays = new boolean[TOTAL_DAYS];
         for (int i = 0; i < dayViews.length; i++) {
@@ -147,6 +164,15 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
 
     public void setMultiSelectionAllowed(boolean multiSelectionAllowed) {
         isMultiSelectionAllowed = multiSelectionAllowed;
+    }
+
+    @Nullable
+    public OnDaysSelectionChangedListener getOnDaysSelectionChangedListener() {
+        return onDaysSelectionChangedListener;
+    }
+
+    public void setOnDaysSelectionChangedListener(@Nullable OnDaysSelectionChangedListener onDaysSelectionChangedListener) {
+        this.onDaysSelectionChangedListener = onDaysSelectionChangedListener;
     }
 
     private void decideOtherViewsSelection(View viewToIgnore) {
