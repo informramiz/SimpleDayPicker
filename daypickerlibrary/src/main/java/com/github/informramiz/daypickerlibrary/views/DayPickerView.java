@@ -124,6 +124,23 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
         return countTrue(getSelectedDays());
     }
 
+    /**
+     * Validates if the view is in correct state
+     * which is:
+     * 1. at least 1 day is selected when multi-selection
+     *    is allowed
+     * 2. no more than 1 day is selected when multi-selection
+     *    is not allowed
+     * @return true if state is valid, false otherwise
+     */
+    public boolean validateInput() {
+        if (isMultiSelectionAllowed()) {
+            return getSelectedDaysCount() >= 1;
+        } else {
+            return getSelectedDaysCount() == 1;
+        }
+    }
+
     public boolean isMultiSelectionAllowed() {
         return isMultiSelectionAllowed;
     }
