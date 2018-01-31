@@ -40,10 +40,19 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
         super.setOnClickListener(this);
     }
 
+    /**
+     * Returns true if auto-select background change is enabled
+     * @return true of auto-select background change is enabled, false otherwise
+     */
     public boolean isAutoSelectEnabled() {
         return isAutoSelectEnabled;
     }
 
+    /**
+     * If you want to disable auto-select background change
+     * of this view then you can set pass false, true otherwise
+     * @param autoSelectEnabled false if you want to disable auto background change, true otherwise
+     */
     public void setAutoSelectEnabled(boolean autoSelectEnabled) {
         isAutoSelectEnabled = autoSelectEnabled;
     }
