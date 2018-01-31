@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.github.informramiz.daypickerlibrary.views.DayPickerDialog;
+import com.github.informramiz.daypickerlibrary.views.DayPickerView;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -24,8 +27,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                showDayPickerDialog();
             }
         });
+    }
+
+    void showDayPickerDialog() {
+        DayPickerDialog.Builder builder = new DayPickerDialog.Builder(this)
+                .setMultiSelectionAllowed(false)
+                .setOnDaysSelectedListener(new DayPickerDialog.OnDaysSelectedListener() {
+                    @Override
+                    public void onDaysSelected(DayPickerView dayPickerView, boolean[] selectedDays) {
+
+                    }
+                });
+        builder.build().show();
     }
 
     @Override
