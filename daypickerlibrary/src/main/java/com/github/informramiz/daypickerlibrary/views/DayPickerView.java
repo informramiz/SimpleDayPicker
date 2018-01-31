@@ -1,6 +1,7 @@
 package com.github.informramiz.daypickerlibrary.views;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.IdRes;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
@@ -47,11 +48,12 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
 
     public DayPickerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
-    }
-
-    public DayPickerView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.DayPickerView);
+        try {
+            isMultiSelectionAllowed = typedArray.getBoolean(R.styleable.DayPickerView_isMultiSelectionAllowed, false);
+        } finally {
+            typedArray.recycle();
+        }
         init();
     }
 
