@@ -69,12 +69,22 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
     }
 
     private void handleAutoSelectEvent() {
-        setActivated(!isActivated());
-        if (isActivated()) {
+        setSelected(!isSelected());
+        updateTextColor();
+    }
+
+    private void updateTextColor() {
+        if (isSelected()) {
             setTextColor(ContextCompat.getColor(getContext(), android.R.color.primary_text_dark));
         } else {
             setTextColor(ContextCompat.getColor(getContext(), android.R.color.tab_indicator_text));
         }
+    }
+
+    @Override
+    public void setSelected(boolean selected) {
+        super.setSelected(selected);
+        updateTextColor();
     }
 
     @Override
