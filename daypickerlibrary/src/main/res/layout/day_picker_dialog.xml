@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,15 +13,12 @@
         android:text="@string/day_picker_dialog_title"
         android:gravity="start|center_vertical"
         android:layout_gravity="start|center_vertical"
-        android:textColor="@android:color/white"
         android:includeFontPadding="false"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="25sp"
         android:visibility="visible"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:background="?attr/colorPrimary"
-    />
+        android:background="?attr/colorAccent"
+        style="@style/DayPickerTitleTextStyle"/>
 
     <com.github.informramiz.daypickerlibrary.views.DayPickerView
         xmlns:android="http://schemas.android.com/apk/res/android"
