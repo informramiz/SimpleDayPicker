@@ -37,7 +37,7 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
     public void init() {
         setGravity(Gravity.CENTER);
         setBackgroundResource(R.drawable.circular_button_selector);
-        setTextColor(ContextCompat.getColorStateList(getContext(), R.color.circular_button_selector));
+        setTextColor(ContextCompat.getColorStateList(getContext(), R.color.circular_button_text_color_selector));
         super.setOnClickListener(this);
     }
 
