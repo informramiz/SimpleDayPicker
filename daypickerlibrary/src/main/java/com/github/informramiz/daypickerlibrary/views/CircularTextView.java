@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.github.informramiz.daypickerlibrary.R;
+import com.github.informramiz.daypickerlibrary.common.CommonUtils;
 
 /**
  * Created by ramiz on 1/31/18.
@@ -37,6 +38,7 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
     public void init() {
         setGravity(Gravity.CENTER);
         setBackgroundResource(R.drawable.circular_button_selector);
+        setTextColor(ContextCompat.getColorStateList(getContext(), R.color.circular_button_selector));
         super.setOnClickListener(this);
     }
 
@@ -70,21 +72,6 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
 
     private void handleAutoSelectEvent() {
         setSelected(!isSelected());
-        updateTextColor();
-    }
-
-    private void updateTextColor() {
-        if (isSelected()) {
-            setTextColor(ContextCompat.getColor(getContext(), android.R.color.primary_text_dark));
-        } else {
-            setTextColor(ContextCompat.getColor(getContext(), android.R.color.tab_indicator_text));
-        }
-    }
-
-    @Override
-    public void setSelected(boolean selected) {
-        super.setSelected(selected);
-        updateTextColor();
     }
 
     @Override
