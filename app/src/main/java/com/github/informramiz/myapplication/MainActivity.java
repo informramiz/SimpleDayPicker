@@ -1,5 +1,7 @@
 package com.github.informramiz.myapplication;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,24 +27,40 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
                 showDayPickerDialog();
+            }
+        });
+
+        FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePicker();
             }
         });
     }
 
     void showDayPickerDialog() {
         DayPickerDialog.Builder builder = new DayPickerDialog.Builder(this)
-                .setMultiSelectionAllowed(false)
+                .setMultiSelectionAllowed(true)
                 .setOnDaysSelectedListener(new DayPickerDialog.OnDaysSelectedListener() {
                     @Override
                     public void onDaysSelected(DayPickerView dayPickerView, boolean[] selectedDays) {
 
                     }
                 })
-                .setThemeResId(android.R.style.Theme_Holo_Dialog_NoActionBar);
+                ;
         builder.show();
+    }
+
+    void showTimePicker() {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, null, 0, 0, false);
+        timePickerDialog.show();
+    }
+
+    void showDatePicker() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, null, 0, 0, 0);
+        datePickerDialog.show();
     }
 
     @Override
