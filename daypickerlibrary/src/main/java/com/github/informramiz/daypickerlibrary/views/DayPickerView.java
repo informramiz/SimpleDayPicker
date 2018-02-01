@@ -15,6 +15,7 @@ import com.github.informramiz.daypickerlibrary.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Calendar;
 
 /**
  * Created by ramiz on 1/31/18.
@@ -86,6 +87,8 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
         for (CircularTextView dayView : dayViews) {
             dayView.setOnClickListener(this);
         }
+
+        setDaySelected(getCurrentDay(), true);
     }
 
     @Override
@@ -196,5 +199,11 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
         }
 
         return count;
+    }
+
+    private int getCurrentDay() {
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+        return day - 1;
     }
 }
