@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StyleRes;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.TypedValue;
@@ -42,7 +43,7 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
     }
 
     public DayPickerDialog(Builder builder) {
-        super(builder.context);
+        super(builder.context, builder.themeResId);
         this.mInitialSelectedDays = builder.initialSelectedDays;
         this.mOnDaysSelectedListener = builder.onDaysSelectedListener;
         this.mIsMultiSelectionAllowed = builder.isMultiSelectionAllowed;
@@ -130,6 +131,8 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
         boolean isMultiSelectionAllowed = true;
         @Nullable
         OnDaysSelectedListener onDaysSelectedListener = null;
+        @StyleRes
+        int themeResId = 0;
 
         public Builder(@NonNull Context context) {
             this.context = context;
@@ -147,6 +150,11 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
 
         public Builder setOnDaysSelectedListener(@Nullable OnDaysSelectedListener onDaysSelectedListener) {
             this.onDaysSelectedListener = onDaysSelectedListener;
+            return this;
+        }
+
+        public Builder setThemeResId(int themeResId) {
+            this.themeResId = themeResId;
             return this;
         }
 

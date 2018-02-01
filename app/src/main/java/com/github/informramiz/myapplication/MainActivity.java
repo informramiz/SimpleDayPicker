@@ -40,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onDaysSelected(DayPickerView dayPickerView, boolean[] selectedDays) {
 
                     }
-                });
-        builder.build().show();
+                })
+                .setThemeResId(android.R.style.Theme_Holo_Dialog_NoActionBar);
+        builder.show();
     }
 
     @Override
