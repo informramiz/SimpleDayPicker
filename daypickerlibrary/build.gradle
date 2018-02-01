@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/informramiz/SimpleDayPicker'
     gitUrl = 'https://github.com/informramiz/SimpleDayPicker.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = versionName
 
     developerId = 'informramiz'
     developerName = 'Ramiz Raja'
@@ -26,15 +26,13 @@ ext {
 }
 
 android {
-    compileSdkVersion 27
-
-
+    compileSdkVersion compileSdkVersionCode
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0.1"
+        minSdkVersion minSdkVersionCode
+        targetSdkVersion targetSdkVersionCode
+        versionCode versionCode
+        versionName versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
