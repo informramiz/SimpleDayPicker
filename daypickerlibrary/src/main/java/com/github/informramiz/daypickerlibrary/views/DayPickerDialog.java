@@ -11,6 +11,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.informramiz.daypickerlibrary.R;
 
@@ -23,6 +24,7 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
     private static final String KEY_IS_MULTI_SELECTION_ALLOWED = "isMultiSelectionAllowed";
 
     private DayPickerView mDayPickerView;
+    private TextView mHeaderTextView;
     @Nullable
     private boolean[] mInitialSelectedDays = new boolean[DayPickerView.TOTAL_DAYS];
     private boolean mIsMultiSelectionAllowed = true;
@@ -52,6 +54,13 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
 
         setButton(BUTTON_POSITIVE, getContext().getString(android.R.string.ok), this);
         setButton(BUTTON_NEGATIVE, getContext().getString(android.R.string.cancel), this);
+
+        mHeaderTextView = view.findViewById(R.id.day_pick_dialog_header);
+        if (!builder.isMultiSelectionAllowed) {
+            mHeaderTextView.setText(getContext().getResources().getQuantityString(R.plurals.day_picker_dialog_title, 1));
+        } else {
+            mHeaderTextView.setText(getContext().getResources().getQuantityString(R.plurals.day_picker_dialog_title, 7));
+        }
 
         mDayPickerView = view.findViewById(R.id.dayPickerView);
         if (mInitialSelectedDays != null) {

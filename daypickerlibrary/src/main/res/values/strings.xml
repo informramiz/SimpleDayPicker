@@ -8,4 +8,9 @@
     <string name="friday">FRI</string>
     <string name="saturday">SAT</string>
     <string name="day_picker_dialog_title">Select Days</string>
+
+    <plurals name="day_picker_dialog_title">
+        <item quantity="one">Select Day</item>
+        <item quantity="other">@string/day_picker_dialog_title</item>
+    </plurals>
 </resources>
