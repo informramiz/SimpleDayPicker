@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.View;
 
 import com.github.informramiz.daypickerlibrary.R;
-import com.github.informramiz.daypickerlibrary.common.CommonUtils;
 
 /**
  * Created by ramiz on 1/31/18.
