@@ -116,7 +116,9 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
     public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         boolean[] selectedDays = savedInstanceState.getBooleanArray(KEY_SELECTED_DAYS);
-        mDayPickerView.setDaysSelected(selectedDays);
+        if (selectedDays != null) {
+            mDayPickerView.setDaysSelected(selectedDays);
+        }
         mDayPickerView.setMultiSelectionAllowed(savedInstanceState.getBoolean(KEY_IS_MULTI_SELECTION_ALLOWED));
     }
 
