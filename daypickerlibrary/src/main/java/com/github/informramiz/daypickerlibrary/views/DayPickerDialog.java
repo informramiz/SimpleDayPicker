@@ -57,8 +57,11 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
             mDayPickerView.setDaysSelected(mInitialSelectedDays);
         }
         mDayPickerView.setMultiSelectionAllowed(mIsMultiSelectionAllowed);
-        mDayPickerView.setOnDaysSelectionChangedListener((dayPickerView, selectedDays1) -> {
-            Log.i(DayPickerDialog.class.getSimpleName(), "Days selection changed");
+        mDayPickerView.setOnDaysSelectionChangedListener(new DayPickerView.OnDaysSelectionChangedListener() {
+            @Override
+            public void onDaysSelectionChange(DayPickerView dayPickerView, boolean[] selectedDays) {
+                    Log.i(DayPickerDialog.class.getSimpleName(), "Days selection changed");
+            }
         });
     }
 
@@ -66,10 +69,13 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
     public void show() {
         super.show();
 
-        getButton(BUTTON_POSITIVE).setOnClickListener(v -> {
-            if (mDayPickerView.validateInput()) {
-                onClick(DayPickerDialog.this, BUTTON_POSITIVE);
-                dismiss();
+        getButton(BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mDayPickerView.validateInput()) {
+                    DayPickerDialog.this.onClick(DayPickerDialog.this, BUTTON_POSITIVE);
+                    dismiss();
+                }
             }
         });
     }
