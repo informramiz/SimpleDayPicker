@@ -105,14 +105,6 @@ public class DayPickerDialog extends AlertDialog implements DialogInterface.OnCl
         }
     }
 
-    public void setInitialSelectedDays(@NonNull boolean[] initialSelectedDays) {
-        this.mInitialSelectedDays = initialSelectedDays;
-    }
-
-    public void setIsMultiSelectionAllowed(boolean isMultiSelectionAllowed) {
-        this.mIsMultiSelectionAllowed = isMultiSelectionAllowed;
-    }
-
     @NonNull
     @Override
     public Bundle onSaveInstanceState() {
