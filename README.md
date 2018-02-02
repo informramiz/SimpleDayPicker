@@ -9,7 +9,7 @@ You can use it as a view like any other view and also define it in XML code like
 ## Download
 
 ```
-implementation "io.github.informramiz:daypickerlibrary:1.1"
+implementation "io.github.informramiz:daypickerlibrary:1.2"
 ```
 
 ## XML
