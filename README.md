@@ -38,7 +38,7 @@ builder.build().show();
 
 ## Theming 
 
-**There are no hardcoded colors**, just like native Android pickers, this picker uses the theme colors you will define in your theme, including text and background colors. So you don't have to specify color manually, **the picker will automatically adapt to your app theme**. Still, if you prefer, you can specify a theme just any other alert dialog.
+**There are no hardcoded colors**, just like native Android pickers, this picker uses the theme colors you will define in your theme, including text and background colors. So you don't have to specify color manually, **the picker will automatically adapt to your app theme**. Still, if you prefer, you can specify a theme just like any other alert dialog.
 
 Following color names in your **app/activity theme** will define the look of this picker.
 
