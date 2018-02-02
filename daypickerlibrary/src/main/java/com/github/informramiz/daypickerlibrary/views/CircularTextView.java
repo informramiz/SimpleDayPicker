@@ -2,7 +2,7 @@ package com.github.informramiz.daypickerlibrary.views;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -36,8 +36,8 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
 
     public void init() {
         setGravity(Gravity.CENTER);
-        setBackgroundResource(R.drawable.circular_text_view_background_selector);
-        setTextColor(ContextCompat.getColorStateList(getContext(), R.color.circular_text_view_text_color_selector));
+        setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.circular_text_view_background_selector));
+        setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.circular_text_view_text_color_selector));
         super.setOnClickListener(this);
     }
 
