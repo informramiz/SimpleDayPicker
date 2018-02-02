@@ -1,6 +1,7 @@
 package com.github.informramiz.daypickerlibrary.views;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatTextView;
@@ -36,7 +37,14 @@ public class CircularTextView extends AppCompatTextView implements View.OnClickL
 
     public void init() {
         setGravity(Gravity.CENTER);
-        setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.circular_text_view_background_selector));
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            //We can't access theme attributes in @DrawableRes below Android Lollipop
+            //so to properly support theme colors let's use a custom StateListDrawable
+            setBackgroundDrawable(new CustomStateListDrawable(getContext()));
+        } else {
+            setBackgroundDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.circular_text_view_background_selector));
+        }
+
         setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.circular_text_view_text_color_selector));
         super.setOnClickListener(this);
     }
