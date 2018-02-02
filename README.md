@@ -37,6 +37,24 @@ DayPickerDialog.Builder builder = new DayPickerDialog.Builder(this)
 builder.build().show();
 ```
 
-##Theming 
+## Theming 
 
 **There are no hardcoded colors**, just like native Android pickers, this picker uses the theme colors you will define in your theme, including text and background colors. So you don't have to specify color manually, **the picker will automatically adapt to your app theme**. Still, if you prefer, you can specify a theme just any other alert dialog.
+
+- For versions **v21 and above**, following color names in your **app/activity theme** will define the look of this picker
+
+```
+<style name="AppTheme" parent="...">
+        <item name="colorAccent">...</item>
+        <item name="colorControlHighlight">...</item>
+        <item name="android:textColorPrimary">...</item>
+        <item name="android:textColorPrimaryInverse">...</item>
+</style>
+``` 
+
+- On versions **below v21**, following color names **must** be defined in your **colors.xml (not theme)** otherwise app will crash.
+
+```
+<color name="colorAccent">...</color>
+<color name="colorControlHighlight">...</color>
+```
