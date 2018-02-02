@@ -1,5 +1,5 @@
 # SimpleDayPicker
-A simple material design week day picker just like Time and Date pickers of Android support library. It's simple, light weight and works just like native Date and Time pickers you are used to.
+A simple material design week day picker just like native Time and Date pickers of Android support library. It's simple, light weight and works just like native Date and Time pickers you are used to and supports **minSdkVersion 14**.
 
 ![dayPickerView.png](demo-images/s3.png) ![dayPickerView.png](demo-images/s4.png) ![dayPickerView.png](demo-images/s1.png) ![dayPickerView.png](demo-images/s2.png) ![dayPickerView.png](demo-images/s5.png) ![dayPickerView.png](demo-images/s6.png)
 
