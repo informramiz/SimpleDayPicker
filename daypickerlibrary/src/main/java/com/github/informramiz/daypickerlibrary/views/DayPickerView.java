@@ -34,7 +34,7 @@ public class DayPickerView extends FrameLayout implements View.OnClickListener {
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef(value = {DAY_SUNDAY, DAY_MONDAY, DAY_TUESDAY, DAY_WEDNESDAY, DAY_THURSDAY, DAY_FRIDAY, DAY_SATURDAY})
-    @interface PickerDay{}
+    public @interface PickerDay{}
     public static final int TOTAL_DAYS = 7;
 
     private boolean isMultiSelectionAllowed = true;
