@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.versionName = "1.4"
+    ext.versionName = "1.5"
     ext.versionCode = 5
     ext.compileSdkVersionCode = 27
     ext.minSdkVersionCode = 14
