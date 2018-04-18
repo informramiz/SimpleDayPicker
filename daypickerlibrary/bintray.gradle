@@ -10,7 +10,12 @@ if (project.hasProperty("android")) { // Android libraries
 
     task javadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
-        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        //use compile time dependences in java docs resolution as well
+        configurations.implementation.setCanBeResolved(true)
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator)) + configurations.implementation
+//        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        //I don't want build to fail just because of Java docs failure
+        failOnError false
     }
 } else { // Java libraries
     task sourcesJar(type: Jar, dependsOn: classes) {
