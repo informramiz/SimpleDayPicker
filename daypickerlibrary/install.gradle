@@ -1,3 +1,4 @@
+//reference: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = publishedGroupId                               // Maven Group ID for the artifact

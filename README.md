@@ -50,3 +50,6 @@ Following color names in your **app/activity theme** will define the look of thi
         <item name="android:textColorPrimaryInverse">...</item>
 </style>
 ``` 
+
+## References
+- [https://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en]()
